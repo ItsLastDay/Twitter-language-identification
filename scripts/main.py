@@ -90,13 +90,14 @@ def cross_validation(clf, text_folder, percentile=0.6, iterations=6, debug_outpu
             conv_func = convert_textcat_to_str
         else:
             raise ValueError('Unknown classifier!')
-        
+            
         # collect answers
         cur_iter = []
         if debug_output:
             debug = codecs.open(dbg_file, 'w', 'utf-8')
         for f in files:
             data = read_data(os.path.join(test_folder, f))
+            print 'Getting answers for ' + f[:-4] + '...'
             for tweet in data:
                 predicted = conv_func(classify(classifier, tweet))
                 ground_truth = ISO_639_1_map(f[:-4])
@@ -107,6 +108,7 @@ def cross_validation(clf, text_folder, percentile=0.6, iterations=6, debug_outpu
             debug.close()
 
         # evaluate statistics
+        print 'Evaluating statistics...'
         languages = numpy.unique([x[0] for x in cur_iter])
         for lang in languages:
             answer_is_lang = filter(lambda x: x[0] == lang, cur_iter)
@@ -137,13 +139,10 @@ def cross_validation(clf, text_folder, percentile=0.6, iterations=6, debug_outpu
 
 
 folder = '/home/last/programming/kursa/parsed_text'
-'''for clf in ['textcat', 'liga', 'liga_original', 'cld2', 'langid']:
+for clf in ['textcat', 'liga', 'liga_original', 'cld2', 'langid']:
     for percentile in [0.5, 0.6, 0.7, 0.8]:
         output_file = clf + '_' + str(percentile)
         res = cross_validation(clf, folder, percentile=percentile, \
                 iterations=10, debug_output=True, dbg_file=output_file + '_dump')
         nice = out_dict(res)
-        write_data(output_file, [nice])'''
-res = cross_validation('logr', folder + '_features', percentile=0.8, iterations=3, debug_output=True,
-        dbg_file='logr_dump')
-print out_dict(res)
+        write_data(output_file, [nice])

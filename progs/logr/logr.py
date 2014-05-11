@@ -32,9 +32,9 @@ class LogR:
     def _get_dict_and_update(d, key):
         # if key is not present in dictionary, assign value len(d) to it.
         # Otherwise, return value for that key.
-        val = d.get(key, len(d))
-        d[key] = val
-        return val
+        if key not in d:
+            d[key] = len(d)
+        return d[key]
 
     @staticmethod
     def _is_latin(s):
@@ -121,6 +121,7 @@ class LogR:
         files = filter(lambda x: x.endswith('.txt'), os.listdir(folder))
         for f in files:
             # assign number to current language
+            print 'LogR adds file ' + f
             for tweet in LogR._read_from_file(os.path.join(folder, f)):
                 # get features
                 features = self._extract_features(tweet)
@@ -135,13 +136,15 @@ class LogR:
                 target.append(lang)
                 objects.append(obj)
         
+        print 'LogR started training...'
         self.model = liblinearutil.train(target, objects, '-s 0')
+        print 'Finished!'
 
     def classify(self, tweet):
         features = self._extract_features(tweet)
-        value = liblinearutil.predict([0], features, self.model)[0]
+        value = liblinearutil.predict([0], [features], self.model)[0][0]
         for lang, number in self.languages.items():
-            if number == value[0]:
+            if number == value:
                 return lang
         raise ValueError
 
