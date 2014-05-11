@@ -23,7 +23,10 @@ def ISO_639_1_map(lang):
         ('ukrainian', 'uk'),
         ('urdu', 'ur')
             ]
-    return dict(f)[lang]
+    try:
+        return dict(f)[lang]
+    except KeyError:
+        return 'unknown'
 
 def read_data(fi, sep='\n'):
     fi = codecs.open(fi, 'r', 'utf-8')
@@ -35,6 +38,12 @@ def write_data(outp, data, sep='\n'):
     outp = codecs.open(outp, 'w', 'utf-8')
     outp.write(sep.join(data))
     outp.close()
+
+def convert_textcat_to_str(predicted):
+    # Converts something like
+    # ['Dutch']
+    # to 'nl'.
+    return ISO_639_1_map(predicted[0])
 
 def convert_cld2_to_str(predicted):
     # Converts something like
