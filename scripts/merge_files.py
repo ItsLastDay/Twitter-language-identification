@@ -38,6 +38,7 @@ for i in range(len(files) - 1):
         os.remove(name2)
         merged = codecs.open(os.path.join(sys.argv[1], common), 'w', 'utf-8')
         merged.write(data1)
+        merged.write('\n')
         merged.write(data2)
         files[i + 1] = common
         merged.close()

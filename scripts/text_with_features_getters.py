@@ -54,7 +54,7 @@ def plain_get_text(folder, output, prefix=''):
         fi = codecs.open(os.path.join(folder, fi), 'r', 'utf-8')
         out = fi.read()
         fi.close()
-        
+
         out = process(out)
         if out == '':
             continue
@@ -111,15 +111,18 @@ def json_get_text(folder, output, prefix=''):
         if text == '':
             continue 
 
-        sname = out[u'user'][u'screen_name']
+        sname = process(out[u'user'][u'screen_name'])
+
         try:
-            uname = out[u'user'][u'name']
+            uname = process(out[u'user'][u'name'])
         except KeyError:
             uname = 'not-given'
+
         try:
-            location = out[u'user'][u'location']
+            location = process(out[u'user'][u'location'])
         except KeyError:
             location = 'not-given'
+
         row = [text, uname, sname, location, ','.join(hashtags), ','.join(mentions), ','.join(links)]
         row = '\t'.join(row)
 
