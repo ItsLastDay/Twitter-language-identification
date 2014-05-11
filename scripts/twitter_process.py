@@ -13,10 +13,6 @@ def read_twits(inp, output):
     was = False
     for line in text:
         idshka, lang = line.split(';')
-    #    if not was and idshka != '7826286000':
-    #        continue
-    #    was = True
-        print lang, idshka
         while True:
             try:
                 limits = tw.GetRateLimitStatus('statuses')[u'resources'][u'statuses'][u'/statuses/show/:id']

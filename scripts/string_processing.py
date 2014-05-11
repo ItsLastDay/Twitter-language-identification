@@ -73,4 +73,5 @@ def process(text):
     text = cut_punct(text)
     text = cut_digits(text)
     text = cut_whitespace(text)
+#    text = text.lower()
     return text

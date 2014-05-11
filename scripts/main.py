@@ -133,7 +133,7 @@ def cross_validation(clf, text_folder, percentile=0.6, iterations=6, debug_outpu
 
 
 folder = '/home/last/programming/kursa/parsed_text'
-for clf in ['liga_original', 'cld2', 'langid']:
+for clf in ['textcat', 'liga', 'liga_original', 'cld2', 'langid']:
     for percentile in [0.5, 0.6, 0.7, 0.8]:
         output_file = clf + '_' + str(percentile)
         res = cross_validation(clf, folder, percentile=percentile, \
