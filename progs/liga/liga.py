@@ -203,9 +203,7 @@ class LIGA:
         tweets = LIGA._read_from_file(path, sep)
         res = []
         for tweet in tweets:
-            scores = self._walk(tweet)
-            scores = LIGA._normalize_score(scores)
-            res.append(LIGA._get_best(scores))
+            res.append(self.classify(tweet))
         return res
 
     def classify(self, text):

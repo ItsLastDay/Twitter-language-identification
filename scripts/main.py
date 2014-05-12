@@ -141,10 +141,15 @@ def cross_validation(clf, text_folder, percentile=0.6, iterations=6, debug_outpu
 
 
 folder = '/home/last/programming/kursa/parsed_text'
-for clf in ['liga']:# ['textcat', 'liga', 'liga_original', 'cld2', 'langid']:
-    for percentile in [0.5, 0.6, 0.8]:
+'''for clf in ['liga']:# ['textcat', 'liga', 'liga_original', 'cld2', 'langid']:
+    for percentile in [0.7, 0.8]:
         output_file = clf + '_' + str(percentile)
         res = cross_validation(clf, folder, percentile=percentile, \
                 iterations=10, debug_output=True, dbg_file=output_file + '_dump')
         nice = out_dict(res)
         write_data(output_file, [nice])
+'''
+clf = liga.LIGA(sep='\n', train_folder=folder)
+ans = clf.classify_file('\n', folder + '/farsi.txt')
+for x in ans:
+    print x

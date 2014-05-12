@@ -4,8 +4,8 @@ import re, string
 
 def cut_punct(text):
     for punct in string.punctuation:
-        text = text.replace(punct, '')
-        #text = text.replace(punct, ' ') # part of adv processing
+        #text = text.replace(punct, '')
+        text = text.replace(punct, ' ') # part of adv processing
     return text
 
 def cut_whitespace(text):
@@ -90,7 +90,7 @@ def process(text):
     text = cut_punct(text)
     text = cut_digits(text)
     text = cut_whitespace(text)
-    #text = shorten_equal(text) # part of adv processing
-    #text = cut_short_words(text) # part of adv processing
-    #text = text.lower() # part of adv processing
+    text = shorten_equal(text) # part of adv processing
+    text = cut_short_words(text) # part of adv processing
+    text = text.lower() # part of adv processing
     return text

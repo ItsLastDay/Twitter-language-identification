@@ -8,6 +8,8 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{amsthm}
+\usepackage{tikz}
+\usepackage{pgfplots}
 
 \begin{document}
 
@@ -396,6 +398,13 @@
 	
 	\begin{center}
 %		\includegraphics[scale=0.75]{set_3.eps} \\
+		\begin{tikzpicture}
+		\begin{axis}[xlabel=errors, ylabel=percentage]
+		\addplot[blue!80!black] coordinates
+			{(-23, 1.5) (0, 1.7) (10, 1.96)};
+		\addlegendentry{liga}
+		\end{axis}
+		\end{tikzpicture}
 		Проекция множества достижимости на статическую плоскость $(l_1, l_2)$.
 	\end{center}		
 	\begin{center}
