@@ -15,6 +15,7 @@ sys.path.append(pref + 'langid/langid.py/langid')
 import logr
 import cld2
 import textcat
+from textcat import ShortException, UnknownException
 import liga, liga_original
 import langid
 
@@ -23,7 +24,7 @@ def classify(clf, text):
     text = text.encode('utf-8')
     try:
         return clf.classify(text)
-    except:
+    except (UnknownException, ShortException):
         return 'unkown'
 
 # monkey-patching cld2 to unify interfaces.
@@ -95,6 +96,7 @@ def cross_validation(clf, text_folder, percentile=0.6, iterations=6, debug_outpu
         cur_iter = []
         if debug_output:
             debug = codecs.open(dbg_file, 'w', 'utf-8')
+        print 'Iteration ', _, 'for classifier', clf
         for f in files:
             data = read_data(os.path.join(test_folder, f))
             print 'Getting answers for ' + f[:-4] + '...'
@@ -139,8 +141,8 @@ def cross_validation(clf, text_folder, percentile=0.6, iterations=6, debug_outpu
 
 
 folder = '/home/last/programming/kursa/parsed_text'
-for clf in ['textcat', 'liga', 'liga_original', 'cld2', 'langid']:
-    for percentile in [0.5, 0.6, 0.7, 0.8]:
+for clf in ['liga']:# ['textcat', 'liga', 'liga_original', 'cld2', 'langid']:
+    for percentile in [0.5, 0.6, 0.8]:
         output_file = clf + '_' + str(percentile)
         res = cross_validation(clf, folder, percentile=percentile, \
                 iterations=10, debug_output=True, dbg_file=output_file + '_dump')

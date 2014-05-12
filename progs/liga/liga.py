@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import os, codecs, time, argparse, os.path, re
+import os, codecs, time, argparse, os.path, re, math
 
 
 _author_ = "Mikhail Koltsov"
@@ -173,16 +173,24 @@ class LIGA:
         for lang in self.languages:
             scores[lang] = 0.0
 
+        langs_count = len(self.languages)
         for trig in LIGA._get_ngrams(text, 3):
+            amp_vertex = len([x for x in self.languages if (trig, x) in self.model[0]])
+            amp_vertex = math.log(langs_count / float(amp_vertex) if amp_vertex else 1) + 1
+
+            amp_edge = len([x for x in self.languages if (prev, trig, lang) in self.model[1]])
+            amp_edge = math.log(langs_count / float(amp_edge) if amp_edge else 1) + 1
             for lang in self.languages:
                 v_key = (trig, lang)
                 # add score for the vertex corresponding to <trig>
-                scores[lang] += (self.model[0].get(v_key, 0) * 1.0) / self.v_by_language[lang]
+                scores[lang] += amp_vertex * (self.model[0].get(v_key, 0) * 1.0) / \
+                        self.v_by_language[lang] * amp_vertex
                 # if there were trigram before, add score of an edge
                 # (<prev>, <trig>)
                 if prev != None:
                     e_key = (prev, trig, lang)
-                    scores[lang] += (self.model[1].get(e_key, 0) * 1.0) / self.e_by_language[lang]
+                    scores[lang] += (self.model[1].get(e_key, 0) * 1.0) / \
+                            self.e_by_language[lang] * amp_edge
             prev = trig
 
         return scores
@@ -203,7 +211,8 @@ class LIGA:
     def classify(self, text):
         scores = self._walk(text)
         scores = LIGA._normalize_score(scores)
-        return LIGA._get_best(scores)
+        answer = LIGA._get_best(scores)
+        return answer
             
 
 

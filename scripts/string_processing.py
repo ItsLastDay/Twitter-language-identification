@@ -5,6 +5,7 @@ import re, string
 def cut_punct(text):
     for punct in string.punctuation:
         text = text.replace(punct, '')
+        #text = text.replace(punct, ' ') # part of adv processing
     return text
 
 def cut_whitespace(text):
@@ -59,6 +60,22 @@ def cut_repost(text):
     text = text.replace('&gt;', '') # weird html stuff appearing
     return text
 
+def shorten_equal(text):
+    # reduces occurences of 3 or more consecutive letter to two.
+    expr = '%s{3,}'
+    for letter in set(text):
+        text = re.sub(expr % letter, letter + letter, text)
+    return text
+        
+
+def cut_short_words(text):
+    # delete all words shorter than 3
+    words = []
+    for word in text.split(' '):
+        if len(word) >= 3:
+            words.append(word)
+    return ' '.join(words)
+
 def process(text):
     text = cut_repost(text)
     links = get_links(text)
@@ -73,5 +90,7 @@ def process(text):
     text = cut_punct(text)
     text = cut_digits(text)
     text = cut_whitespace(text)
-#    text = text.lower()
+    #text = shorten_equal(text) # part of adv processing
+    #text = cut_short_words(text) # part of adv processing
+    #text = text.lower() # part of adv processing
     return text
