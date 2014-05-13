@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.4.11)  13 MAY 2014 16:30
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.4.11)  13 MAY 2014 19:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1450,14 +1450,14 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \c@option=\count180
 \c@theorem=\count181
  [3]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 123.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 122.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <14.4> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 123.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 122.
  [4] [5]
 Overfull \hbox (9.01408pt too wide) in paragraph at lines 186--186
 []\T2A/ftm/bx/n/17.28 Подходы, ис-поль-зу-ю-щие <<стан-дарт-ные>> ал-го-рит-мы 
@@ -1480,48 +1480,60 @@ Package amsmath Warning: Cannot use `split' here;
 
 [7] [8]
 
+Package amsmath Warning: Cannot use `split' here;
+(amsmath)                trying to recover with `aligned' on input line 296.
+
+
+Overfull \hbox (3.79384pt too wide) detected at line 299
+\OML/cmm/m/it/14.4 get[]v[]v\OT1/cmr/m/n/14.4 2(\OML/cmm/m/it/14.4 tr; l\OT1/cm
+r/m/n/14.4 ) = []
+ []
+
+
+Package amsmath Warning: Cannot use `split' here;
+(amsmath)                trying to recover with `aligned' on input line 308.
+
+[9]
+
 LaTeX Font Warning: Font shape `T2A/ftm/m/it' undefined
-(Font)              using `T2A/ftm/m/n' instead on input line 294.
+(Font)              using `T2A/ftm/m/n' instead on input line 327.
 
 
-Underfull \hbox (badness 1460) in paragraph at lines 294--294
+Underfull \hbox (badness 1460) in paragraph at lines 327--327
 [][]\T2A/ftm/m/it/10 Хэштег - это по-сле-до-ва-тель-ность сим-во-лов без про-бе
 -лов, на-чи-на-ю-ща-я-ся с '$\OT1/cmr/m/n/10 #$\T2A/ftm/m/it/10 ', на-при-мер:
  []
 
 
-Underfull \hbox (badness 1112) in paragraph at lines 296--296
+Underfull \hbox (badness 1112) in paragraph at lines 329--329
 [][]\T2A/ftm/m/it/10 Упоминание - это отоб-ра-жа-е-мое имя поль-зо-ва-те-ля, пр
 ед-ва-рјн-ное сим-во-лом '@', на-при-мер:
  []
 
-
-Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 309.
-
-
-Overfull \hbox (3.79384pt too wide) detected at line 312
-\OML/cmm/m/it/14.4 get[]v[]v\OT1/cmr/m/n/14.4 2(\OML/cmm/m/it/14.4 tr; l\OT1/cm
-r/m/n/14.4 ) = []
+[10]
+Overfull \hbox (0.93867pt too wide) in paragraph at lines 376--379
+\T2A/ftm/bx/n/14.4 эмо-ций, непра-виль-ное упо-треб-ле-ние слов и зна-ков пре-п
+и-на-ния. Что-бы клас-
  []
 
-[9]
+[11] [12] [13]
+Underfull \hbox (badness 2443) in paragraph at lines 430--431
+\T2A/ftm/bx/n/14.4 Overcoming the limitations of short, unedited and idiomatic 
+text
+ []
 
-Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 321.
-
-[10] [11] [12] (./coursework.aux)
+[14] [15] (./coursework.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 26336 strings out of 494519
- 572684 string characters out of 6173778
- 653197 words of memory out of 5000000
- 28996 multiletter control sequences out of 15000+600000
+ 26341 strings out of 494519
+ 572709 string characters out of 6173778
+ 650217 words of memory out of 5000000
+ 29001 multiletter control sequences out of 15000+600000
  16796 words of font info for 41 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
- 56i,14n,82p,2170b,1932s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,14n,82p,2170b,1934s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on coursework.dvi (12 pages, 56068 bytes).
+Output written on coursework.dvi (15 pages, 66968 bytes).
