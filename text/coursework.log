@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.4.11)  13 MAY 2014 20:40
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.4.11)  13 MAY 2014 20:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1516,23 +1516,18 @@ Overfull \hbox (0.93867pt too wide) in paragraph at lines 376--379
 и-на-ния. Что-бы клас-
  []
 
-[11] [12]
-Overfull \hbox (1.63176pt too wide) in alignment at lines 410--440
+[11] [12] [13]
+Overfull \hbox (1.63176pt too wide) in alignment at lines 415--445
 [][][][][][]
  []
 
 
-Overfull \hbox (32.86636pt too wide) in paragraph at lines 410--441
+Overfull \hbox (32.86636pt too wide) in paragraph at lines 415--446
 [][] 
  []
 
-
-Underfull \hbox (badness 10000) in alignment at lines 447--480
-[][][][][][]
- []
-
-[13] [14] [15] [16]
-Underfull \hbox (badness 2443) in paragraph at lines 516--517
+[14] [15] [16]
+Underfull \hbox (badness 2443) in paragraph at lines 521--522
 \T2A/ftm/bx/n/14.4 Overcoming the limitations of short, unedited and idiomatic 
 text
  []
@@ -1545,10 +1540,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  26341 strings out of 494519
  572709 string characters out of 6173778
- 666387 words of memory out of 5000000
+ 662601 words of memory out of 5000000
  29001 multiletter control sequences out of 15000+600000
  16796 words of font info for 41 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
  56i,14n,82p,2170b,1932s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on coursework.dvi (17 pages, 76644 bytes).
+Output written on coursework.dvi (17 pages, 77976 bytes).
