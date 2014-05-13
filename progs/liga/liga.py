@@ -184,13 +184,13 @@ class LIGA:
                 v_key = (trig, lang)
                 # add score for the vertex corresponding to <trig>
                 scores[lang] += amp_vertex * (self.model[0].get(v_key, 0) * 1.0) / \
-                        self.v_by_language[lang] * amp_vertex
+                        self.v_by_language[lang]
                 # if there were trigram before, add score of an edge
                 # (<prev>, <trig>)
                 if prev != None:
                     e_key = (prev, trig, lang)
-                    scores[lang] += (self.model[1].get(e_key, 0) * 1.0) / \
-                            self.e_by_language[lang] * amp_edge
+                    scores[lang] += amp_edge * self.model[1].get(e_key, 0) * 1.0) / \
+                            self.e_by_language[lang]
             prev = trig
 
         return scores
