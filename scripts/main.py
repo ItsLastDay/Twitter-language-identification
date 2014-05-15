@@ -30,7 +30,7 @@ def classify(clf, text):
 # monkey-patching cld2 to unify interfaces.
 cld2.classify = cld2.detect
 
-def cross_validation(clf, text_folder, percentile=0.6, iterations=6, debug_output=False, dbg_file='cv_output'):
+def cross_validation(clf, text_folder, train_count, test_count,  iterations=6, debug_output=False, dbg_file='cv_output'):
     # perform testing of classifier on .txt files from <text_folder>. 
     # <percentile> of file is going to training set, and the remaining - to test set.
     # Testing is held in-place: /train and /test subfolders are created in <text_folder>,
@@ -53,8 +53,8 @@ def cross_validation(clf, text_folder, percentile=0.6, iterations=6, debug_outpu
             random.shuffle(data)
 
             border = int(percentile * len(data))
-            train = data[:border]
-            test = data[border:]
+            train = data[:train_count]
+            test = data[-test_count:]
             
             write_data(os.path.join(train_folder, f), train)
             write_data(os.path.join(test_folder, f), test)
@@ -112,19 +112,24 @@ def cross_validation(clf, text_folder, percentile=0.6, iterations=6, debug_outpu
         # evaluate statistics
         print 'Evaluating statistics...'
         languages = numpy.unique([x[0] for x in cur_iter])
+        measures = ['accuracy', 'precision', 'recall']
+        for measure in measures:
+            results[measure] = 0
         for lang in languages:
-            answer_is_lang = filter(lambda x: x[0] == lang, cur_iter)
-            predicted_lang = filter(lambda x: x[1] == lang, cur_iter)
-            answered_correctly = filter(lambda x: x[0] == x[1] == lang, cur_iter)
+            tp = filter(lambda x: x[0] == x[1] == lang, cur_iter)
+            fn = filter(lambda x: x[0] == lang and x[1] != lang, cur_iter)
+            fp = filter(lambda x: x[0] != lang and x[1] == lang, cur_iter)
+            tn = filter(lambda x: x[0] != lang and x[1] != lang, cur_iter)
              
-            if len(predicted_lang) == 0:
-                # classifier does not know this language
-                continue
-            precision = len(answered_correctly) / float((len(predicted_lang)))
-            recall = len(answered_correctly) / float(len(answer_is_lang))
-            f_measure = 2 * (precision * recall) / (precision + recall) if precision + recall else 0
-
-            results[lang] = results.get(lang, []) + [(precision, recall, f_measure)]
+            results['accuracy'] += (tp + tn) / float(tp + fn + fp + tn)
+            if tp + fp:
+                results['precision'] += tp / float(tp + fp)
+            if tp + fn:
+                results['recall'] += tp / float(tp + fn)
+        for measure in measures:
+            results[measure] /= len(languages)
+        results['fscore'] = 2 * results['precision'] * results['recall'] / \
+                (results['precision'] + results['recall'])
 
         # end testing
 
@@ -141,15 +146,10 @@ def cross_validation(clf, text_folder, percentile=0.6, iterations=6, debug_outpu
 
 
 folder = '/home/last/programming/kursa/parsed_text'
-'''for clf in ['liga']:# ['textcat', 'liga', 'liga_original', 'cld2', 'langid']:
-    for percentile in [0.7, 0.8]:
-        output_file = clf + '_' + str(percentile)
-        res = cross_validation(clf, folder, percentile=percentile, \
+for clf in ['liga']:# ['textcat', 'liga', 'liga_original', 'cld2', 'langid']:
+    for to_train in [250, 500, 1000]:
+        output_file = clf + '_' + str(to_train)
+        res = cross_validation(clf, folder, train_count=to_train, test_count=to_train, \
                 iterations=10, debug_output=True, dbg_file=output_file + '_dump')
-        nice = out_dict(res)
+        nice = clf + '\n' + out_dict(res)
         write_data(output_file, [nice])
-'''
-clf = liga.LIGA(sep='\n', train_folder=folder)
-ans = clf.classify_file('\n', folder + '/farsi.txt')
-for x in ans:
-    print x

@@ -189,7 +189,7 @@ class LIGA:
                 # (<prev>, <trig>)
                 if prev != None:
                     e_key = (prev, trig, lang)
-                    scores[lang] += amp_edge * self.model[1].get(e_key, 0) * 1.0) / \
+                    scores[lang] += amp_edge * (self.model[1].get(e_key, 0) * 1.0) / \
                             self.e_by_language[lang]
             prev = trig
 

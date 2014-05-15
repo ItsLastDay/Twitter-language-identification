@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.4.11)  13 MAY 2014 22:02
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.4.11)  15 MAY 2014 17:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1417,139 +1417,126 @@ our preamble.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 File: msu.eps Graphic file (type eps)
-<msu.eps>
-LaTeX Font Info:    Try loading font information for T2A+ftm on input line 75.
-LaTeX Font Info:    No file T2Aftm.fd. on input line 75.
+<msu.eps> [1
 
-
-LaTeX Font Warning: Font shape `T2A/ftm/m/n' undefined
-(Font)              using `T2A/cmr/m/n' instead on input line 75.
-
-[1
-
-]
-
-LaTeX Font Warning: Font shape `T2A/ftm/bx/n' undefined
-(Font)              using `T2A/ftm/m/n' instead on input line 75.
-
-(./coursework.toc
+] (./coursework.toc
 LaTeX Font Info:    Try loading font information for U+msa on input line 4.
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 4.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-))
+) [2])
 \tf@toc=\write4
 \openout4 = `coursework.toc'.
 
- [2] [3]
+ [3]
 \c@definition=\count179
 \c@option=\count180
 \c@theorem=\count181
  [4]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 122.
+Overfull \hbox (14.66428pt too wide) in paragraph at lines 116--116
+[]\T2A/cmr/bx/n/17.28 Формальное опи-са-ние за-да-чи ав-то-ма-ти-че-ско-го опре
+-
+ []
 
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 126.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <14.4> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 122.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 126.
  [5] [6]
-Overfull \hbox (9.01408pt too wide) in paragraph at lines 186--186
-[]\T2A/ftm/bx/n/17.28 Подходы, ис-поль-зу-ю-щие <<стан-дарт-ные>> ал-го-рит-мы 
-ма-шин-
+Overfull \hbox (16.56645pt too wide) in paragraph at lines 186--186
+[]\T2A/cmr/bx/n/17.28 Подходы, ис-поль-зу-ю-щие ал-го-рит-мы ма-шин-но-го обу-
  []
 
 [7]
+Overfull \hbox (8.05046pt too wide) in paragraph at lines 211--211
+[]\T2A/cmr/bx/n/17.28 Language identification graph-based approach (LIGA) 
+ []
+
+[8]
 
 Package amsmath Warning: Foreign command \over;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 235.
+(amsmath)                 on input line 242.
 
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 238.
+(amsmath)                trying to recover with `aligned' on input line 245.
 
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 249.
+(amsmath)                trying to recover with `aligned' on input line 256.
 
-[8] [9]
+[9]
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 296.
+(amsmath)                trying to recover with `aligned' on input line 304.
 
 
-Overfull \hbox (3.79384pt too wide) detected at line 299
+Overfull \hbox (3.79384pt too wide) detected at line 307
 \OML/cmm/m/it/14.4 get[]v[]v\OT1/cmr/m/n/14.4 2(\OML/cmm/m/it/14.4 tr; l\OT1/cm
 r/m/n/14.4 ) = []
  []
 
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 308.
+(amsmath)                trying to recover with `aligned' on input line 316.
 
 [10]
-
-LaTeX Font Warning: Font shape `T2A/ftm/m/it' undefined
-(Font)              using `T2A/ftm/m/n' instead on input line 327.
-
-
-Underfull \hbox (badness 1460) in paragraph at lines 327--327
-[][]\T2A/ftm/m/it/10 Хэштег - это по-сле-до-ва-тель-ность сим-во-лов без про-бе
--лов, на-чи-на-ю-ща-я-ся с '$\OT1/cmr/m/n/10 #$\T2A/ftm/m/it/10 ', на-при-мер:
+Underfull \hbox (badness 1460) in paragraph at lines 334--334
+[][]\T2A/cmr/m/n/10 Хэштег - это по-сле-до-ва-тель-ность сим-во-лов без про-бе-
+лов, на-чи-на-ю-ща-я-ся с '$\OT1/cmr/m/n/10 #$\T2A/cmr/m/n/10 ', на-при-мер:
  []
 
 
-Underfull \hbox (badness 1112) in paragraph at lines 329--329
-[][]\T2A/ftm/m/it/10 Упоминание - это отоб-ра-жа-е-мое имя поль-зо-ва-те-ля, пр
-ед-ва-рјн-ное сим-во-лом '@', на-при-мер:
+Underfull \hbox (badness 1112) in paragraph at lines 336--336
+[][]\T2A/cmr/m/n/10 Упоминание - это отоб-ра-жа-е-мое имя поль-зо-ва-те-ля, пре
+д-ва-рјн-ное сим-во-лом '@', на-при-мер:
  []
 
 [11]
-Overfull \hbox (0.93867pt too wide) in paragraph at lines 376--379
-\T2A/ftm/bx/n/14.4 эмо-ций, непра-виль-ное упо-треб-ле-ние слов и зна-ков пре-п
-и-на-ния. Что-бы клас-
+Overfull \hbox (0.93867pt too wide) in paragraph at lines 383--386
+\T2A/cmr/m/n/14.4 эмо-ций, непра-виль-ное упо-треб-ле-ние слов и зна-ков пре-пи
+-на-ния. Что-бы клас-
  []
 
 [12] [13] [14]
-Overfull \hbox (1.63176pt too wide) in alignment at lines 416--446
+Overfull \hbox (1.63176pt too wide) in alignment at lines 427--457
 [][][][][][]
  []
 
 
-Overfull \hbox (32.86636pt too wide) in paragraph at lines 416--447
+Overfull \hbox (32.86636pt too wide) in paragraph at lines 427--458
 [][] 
  []
 
-[15] [16]
-Overfull \hbox (18.17928pt too wide) in paragraph at lines 498--502
-[]\T2A/ftm/bx/n/14.4 Наличие имјн соб-ствен-ных на дру-гом язы-ке: \T2A/cmr/m/i
-t/14.4 moyes ponders toffees selection
+
+Overfull \hbox (18.17928pt too wide) in paragraph at lines 510--514
+[]\T2A/cmr/m/n/14.4 Наличие имјн соб-ствен-ных на дру-гом язы-ке: \T2A/cmr/m/it
+/14.4 moyes ponders toffees selection
  []
 
-[17]
-Underfull \hbox (badness 2443) in paragraph at lines 548--549
-\T2A/ftm/bx/n/14.4 Overcoming the limitations of short, unedited and idiomatic 
-text
+[15] [16] [17] [18]
+Underfull \hbox (badness 2443) in paragraph at lines 559--560
+\T2A/cmr/m/n/14.4 Overcoming the limitations of short, unedited and idiomatic t
+ext
  []
 
-[18] [19] (./coursework.aux)
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
- ) 
+[19] [20] (./coursework.aux) ) 
 Here is how much of TeX's memory you used:
- 25900 strings out of 494519
- 559627 string characters out of 6173778
- 659217 words of memory out of 5000000
- 28560 multiletter control sequences out of 15000+600000
- 16796 words of font info for 41 fonts, out of 8000000 for 9000
+ 25894 strings out of 494519
+ 559547 string characters out of 6173778
+ 662217 words of memory out of 5000000
+ 28553 multiletter control sequences out of 15000+600000
+ 19311 words of font info for 44 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
  56i,14n,74p,2170b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on coursework.dvi (19 pages, 77740 bytes).
+Output written on coursework.dvi (20 pages, 79692 bytes).
