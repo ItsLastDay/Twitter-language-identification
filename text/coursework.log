@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.4.11)  15 MAY 2014 17:04
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.4.11)  16 MAY 2014 12:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1507,36 +1507,52 @@ Overfull \hbox (0.93867pt too wide) in paragraph at lines 383--386
 -на-ни€. „то-бы клас-
  []
 
-[12] [13] [14]
-Overfull \hbox (1.63176pt too wide) in alignment at lines 427--457
-[][][][][][]
+[12] [13]
+Overfull \hbox (4.35483pt too wide) in paragraph at lines 394--395
+\T2A/cmr/m/n/14.4 ства муль-ти-клас-со-вой клас-си-фи-ка-ции: точ-но-сти, пол-н
+о-те, F1-мере, accuracy. 
+ []
+
+[14]
+Overfull \hbox (0.6042pt too wide) in alignment at lines 413--422
+[][][][][][][]
  []
 
 
-Overfull \hbox (32.86636pt too wide) in paragraph at lines 427--458
-[][] 
+Overfull \hbox (0.6042pt too wide) in alignment at lines 429--438
+[][][][][][][]
  []
 
 
-Overfull \hbox (18.17928pt too wide) in paragraph at lines 510--514
+Overfull \hbox (0.6042pt too wide) in alignment at lines 445--454
+[][][][][][][]
+ []
+
+
+Overfull \hbox (0.6042pt too wide) in alignment at lines 461--470
+[][][][][][][]
+ []
+
+[15]
+Overfull \hbox (18.17928pt too wide) in paragraph at lines 484--488
 []\T2A/cmr/m/n/14.4 Ќаличие имЉн соб-ствен-ных на дру-гом €зы-ке: \T2A/cmr/m/it
 /14.4 moyes ponders toffees selection
  []
 
-[15] [16] [17] [18]
-Underfull \hbox (badness 2443) in paragraph at lines 559--560
+[16] [17]
+Underfull \hbox (badness 2443) in paragraph at lines 540--541
 \T2A/cmr/m/n/14.4 Overcoming the limitations of short, unedited and idiomatic t
 ext
  []
 
-[19] [20] (./coursework.aux) ) 
+[18] [19] (./coursework.aux) ) 
 Here is how much of TeX's memory you used:
- 25894 strings out of 494519
- 559547 string characters out of 6173778
- 662217 words of memory out of 5000000
- 28553 multiletter control sequences out of 15000+600000
+ 25895 strings out of 494519
+ 559559 string characters out of 6173778
+ 655221 words of memory out of 5000000
+ 28554 multiletter control sequences out of 15000+600000
  19311 words of font info for 44 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
  56i,14n,74p,2170b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on coursework.dvi (20 pages, 79692 bytes).
+Output written on coursework.dvi (19 pages, 77004 bytes).

@@ -121,7 +121,7 @@ class LogR:
         files = filter(lambda x: x.endswith('.txt'), os.listdir(folder))
         for f in files:
             # assign number to current language
-            print 'LogR adds file ' + f
+            print('LogR adds file ' + f)
             for tweet in LogR._read_from_file(os.path.join(folder, f)):
                 # get features
                 features = self._extract_features(tweet)
@@ -136,9 +136,9 @@ class LogR:
                 target.append(lang)
                 objects.append(obj)
         
-        print 'LogR started training...'
+        print('LogR started training...')
         self.model = liblinearutil.train(target, objects, '-s 0')
-        print 'Finished!'
+        print('Finished!')
 
     def classify(self, tweet):
         features = self._extract_features(tweet)

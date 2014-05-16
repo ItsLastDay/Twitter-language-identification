@@ -1,6 +1,5 @@
 # -*- encoding: utf-8 -*-
 import sys
-import numpy
 import os, os.path
 import random
 import codecs
@@ -38,6 +37,10 @@ def cross_validation(clf, text_folder, train_count, test_count,  iterations=6, d
 
     # Outputs precision and recall of classifier on each iteration as a list of tuples 
     # for each language.
+    measures = ['accuracy', 'precision', 'recall', 'fscore']
+    results = dict()
+    for measure in measures:
+        results[measure] = []
     files = filter(lambda x: x.endswith('.txt'), os.listdir(text_folder))
     train_folder = text_folder + '/train'
     test_folder = text_folder + '/test'
@@ -45,14 +48,13 @@ def cross_validation(clf, text_folder, train_count, test_count,  iterations=6, d
         if not os.path.isdir(x):
             os.mkdir(x)
 
-    results = dict()
+    iter_result = dict()
 
     for _ in range(iterations):
         for f in files:
             data = read_data(os.path.join(text_folder, f))
             random.shuffle(data)
 
-            border = int(percentile * len(data))
             train = data[:train_count]
             test = data[-test_count:]
             
@@ -96,10 +98,10 @@ def cross_validation(clf, text_folder, train_count, test_count,  iterations=6, d
         cur_iter = []
         if debug_output:
             debug = codecs.open(dbg_file, 'w', 'utf-8')
-        print 'Iteration ', _, 'for classifier', clf
+        print('Iteration ', _, 'for classifier', clf)
         for f in files:
             data = read_data(os.path.join(test_folder, f))
-            print 'Getting answers for ' + f[:-4] + '...'
+            print('Getting answers for ' + f[:-4] + '...')
             for tweet in data:
                 predicted = conv_func(classify(classifier, tweet))
                 ground_truth = ISO_639_1_map(f[:-4])
@@ -110,27 +112,27 @@ def cross_validation(clf, text_folder, train_count, test_count,  iterations=6, d
             debug.close()
 
         # evaluate statistics
-        print 'Evaluating statistics...'
-        languages = numpy.unique([x[0] for x in cur_iter])
-        measures = ['accuracy', 'precision', 'recall']
+        print('Evaluating statistics...')
+        languages = list(set([x[0] for x in cur_iter]))
         for measure in measures:
-            results[measure] = 0
+            iter_result[measure] = 0
         for lang in languages:
-            tp = filter(lambda x: x[0] == x[1] == lang, cur_iter)
-            fn = filter(lambda x: x[0] == lang and x[1] != lang, cur_iter)
-            fp = filter(lambda x: x[0] != lang and x[1] == lang, cur_iter)
-            tn = filter(lambda x: x[0] != lang and x[1] != lang, cur_iter)
+            tp = len(filter(lambda x: x[0] == x[1] == lang, cur_iter))
+            fn = len(filter(lambda x: x[0] == lang and x[1] != lang, cur_iter))
+            fp = len(filter(lambda x: x[0] != lang and x[1] == lang, cur_iter))
+            tn = len(filter(lambda x: x[0] != lang and x[1] != lang, cur_iter))
              
-            results['accuracy'] += (tp + tn) / float(tp + fn + fp + tn)
+            iter_result['accuracy'] += (tp + tn) / float(tp + fn + fp + tn)
             if tp + fp:
-                results['precision'] += tp / float(tp + fp)
+                iter_result['precision'] += tp / float(tp + fp)
             if tp + fn:
-                results['recall'] += tp / float(tp + fn)
+                iter_result['recall'] += tp / float(tp + fn)
         for measure in measures:
-            results[measure] /= len(languages)
-        results['fscore'] = 2 * results['precision'] * results['recall'] / \
-                (results['precision'] + results['recall'])
-
+            iter_result[measure] /= len(languages)
+        iter_result['fscore'] = 2 * iter_result['precision'] * iter_result['recall'] / \
+                (iter_result['precision'] + iter_result['recall'])
+        for measure in measures:
+            results[measure].append(iter_result[measure])
         # end testing
 
         for f in files:
@@ -142,14 +144,17 @@ def cross_validation(clf, text_folder, train_count, test_count,  iterations=6, d
             os.remove(os.path.join(train_folder, 'config'))
     os.rmdir(train_folder)
     os.rmdir(test_folder)
+    for measure in measures:
+        results[measure] = sum(results[measure]) / len(results[measure])
     return results
 
 
-folder = '/home/last/programming/kursa/parsed_text'
-for clf in ['liga']:# ['textcat', 'liga', 'liga_original', 'cld2', 'langid']:
-    for to_train in [250, 500, 1000]:
+text_folder = '../parsed_text'
+for clf in ['liga']:#['logr', 'textcat', 'liga', 'liga_original', 'cld2', 'langid']:
+    for to_train in [250, 500, 700]:
         output_file = clf + '_' + str(to_train)
-        res = cross_validation(clf, folder, train_count=to_train, test_count=to_train, \
+        res = cross_validation(clf, folder + ('_features' if clf == 'logr' else ''), \
+                train_count=to_train, test_count=to_train, \
                 iterations=10, debug_output=True, dbg_file=output_file + '_dump')
         nice = clf + '\n' + out_dict(res)
         write_data(output_file, [nice])
