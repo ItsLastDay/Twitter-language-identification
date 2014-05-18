@@ -37,7 +37,7 @@ def cross_validation(clf, text_folder, train_count, test_count,  iterations=6, d
 
     # Outputs precision and recall of classifier on each iteration as a list of tuples 
     # for each language.
-    measures = ['accuracy', 'precision', 'recall', 'fscore']
+    measures = ['precision', 'recall', 'fscore', 'accuracy']
     results = dict()
     for measure in measures:
         results[measure] = []
@@ -116,23 +116,29 @@ def cross_validation(clf, text_folder, train_count, test_count,  iterations=6, d
         languages = list(set([x[0] for x in cur_iter]))
         for measure in measures:
             iter_result[measure] = 0
+        iter_result['accuracy'] = [0, 0]
         for lang in languages:
             tp = len(filter(lambda x: x[0] == x[1] == lang, cur_iter))
             fn = len(filter(lambda x: x[0] == lang and x[1] != lang, cur_iter))
             fp = len(filter(lambda x: x[0] != lang and x[1] == lang, cur_iter))
             tn = len(filter(lambda x: x[0] != lang and x[1] != lang, cur_iter))
-             
-            iter_result['accuracy'] += (tp + tn) / float(tp + fn + fp + tn)
+            
+            iter_result['accuracy'][0] += tp 
             if tp + fp:
                 iter_result['precision'] += tp / float(tp + fp)
             if tp + fn:
                 iter_result['recall'] += tp / float(tp + fn)
-        for measure in measures:
+        iter_result['accuracy'][1] = len(cur_iter)
+        for measure in measures[:-1]:
             iter_result[measure] /= len(languages)
         iter_result['fscore'] = 2 * iter_result['precision'] * iter_result['recall'] / \
                 (iter_result['precision'] + iter_result['recall'])
-        for measure in measures:
+
+        for measure in measures[:-1]:
             results[measure].append(iter_result[measure])
+
+        results['accuracy'].append(iter_result['accuracy'][0] / \
+                float(iter_result['accuracy'][1]))
         # end testing
 
         for f in files:
@@ -150,11 +156,11 @@ def cross_validation(clf, text_folder, train_count, test_count,  iterations=6, d
 
 
 text_folder = '../parsed_text'
-for clf in ['liga']:#['logr', 'textcat', 'liga', 'liga_original', 'cld2', 'langid']:
+for clf in ['logr', 'textcat', 'liga', 'liga_original', 'cld2', 'langid']:
     for to_train in [250, 500, 700]:
         output_file = clf + '_' + str(to_train)
-        res = cross_validation(clf, folder + ('_features' if clf == 'logr' else ''), \
+        res = cross_validation(clf, text_folder + ('_features' if clf == 'logr' else ''), \
                 train_count=to_train, test_count=to_train, \
-                iterations=10, debug_output=True, dbg_file=output_file + '_dump')
+                iterations=10, debug_output=False, dbg_file=output_file + '_dump')
         nice = clf + '\n' + out_dict(res)
         write_data(output_file, [nice])
