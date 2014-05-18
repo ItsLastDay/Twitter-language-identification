@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.4.11)  18 MAY 2014 14:45
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.4.11)  18 MAY 2014 15:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1478,11 +1478,6 @@ Overfull \hbox (16.56645pt too wide) in paragraph at lines 210--210
 
 [8] [9]
 
-Package amsmath Warning: Foreign command \over;
-(amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 268.
-
-
 Package amsmath Warning: Cannot use `split' here;
 (amsmath)                trying to recover with `aligned' on input line 271.
 
@@ -1492,11 +1487,16 @@ Package amsmath Warning: Cannot use `split' here;
 
 [10] [11]
 
+Package amsmath Warning: Foreign command \over;
+(amsmath)                \frac or \genfrac should be used instead
+(amsmath)                 on input line 329.
+
+
 Package amsmath Warning: Cannot use `split' here;
 (amsmath)                trying to recover with `aligned' on input line 332.
 
 
-Overfull \hbox (3.79384pt too wide) detected at line 335
+Overfull \hbox (30.14136pt too wide) detected at line 335
 \OML/cmm/m/it/14.4 get[]v[]v\OT1/cmr/m/n/14.4 2(\OML/cmm/m/it/14.4 tr; l\OT1/cm
 r/m/n/14.4 ) = []
  []
@@ -1505,6 +1505,12 @@ r/m/n/14.4 ) = []
 
 Package amsmath Warning: Cannot use `split' here;
 (amsmath)                trying to recover with `aligned' on input line 344.
+
+
+Overfull \hbox (21.30095pt too wide) detected at line 347
+\OML/cmm/m/it/14.4 get[]e[]v\OT1/cmr/m/n/14.4 2(\OML/cmm/m/it/14.4 tr[]; tr[]; 
+l\OT1/cmr/m/n/14.4 ) = []
+ []
 
 
 Underfull \hbox (badness 1460) in paragraph at lines 362--362
@@ -1587,4 +1593,4 @@ Here is how much of TeX's memory you used:
  430 hyphenation exceptions out of 8191
  56i,14n,74p,2170b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on coursework.dvi (24 pages, 89436 bytes).
+Output written on coursework.dvi (24 pages, 89500 bytes).
