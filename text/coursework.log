@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.4.11)  18 MAY 2014 15:44
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.4.11)  18 MAY 2014 15:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1537,46 +1537,46 @@ Overfull \hbox (4.35483pt too wide) in paragraph at lines 392--393
  []
 
 [15]
-Overfull \hbox (18.17928pt too wide) in paragraph at lines 422--426
+Overfull \hbox (18.17928pt too wide) in paragraph at lines 418--422
 []\T2A/cmr/m/n/14.4 Ќаличие имЉн соб-ствен-ных на дру-гом €зы-ке: \T2A/cmr/m/it
 /14.4 moyes ponders toffees selection
  []
 
 [16] [17] [18]
-Overfull \hbox (5.82689pt too wide) in paragraph at lines 472--473
+Overfull \hbox (5.82689pt too wide) in paragraph at lines 468--469
 \T2A/cmr/m/n/14.4 щие за нор-ма-ли-за-цию тек-ста. »з-ме-н€€ его и пе-ре-за-пус
 -ка€ gen_all_texts,
  []
 
 
-Overfull \hbox (1.91846pt too wide) in paragraph at lines 478--481
+Overfull \hbox (1.91846pt too wide) in paragraph at lines 474--477
 \T2A/cmr/m/n/14.4 LIGA в фай-ле liga/liga.py), LIGA (класс LIGA в фай-ле liga/l
 iga_original.py),
  []
 
 [19]
-Underfull \hbox (badness 2443) in paragraph at lines 510--511
+Underfull \hbox (badness 2443) in paragraph at lines 506--507
 \T2A/cmr/m/n/14.4 Overcoming the limitations of short, unedited and idiomatic t
 ext
  []
 
 [20] [21] [22]
-Overfull \hbox (0.6042pt too wide) in alignment at lines 559--568
+Overfull \hbox (0.6042pt too wide) in alignment at lines 553--562
 [][][][][][][]
  []
 
 
-Overfull \hbox (0.6042pt too wide) in alignment at lines 576--585
+Overfull \hbox (0.6042pt too wide) in alignment at lines 570--579
 [][][][][][][]
  []
 
 
-Overfull \hbox (0.6042pt too wide) in alignment at lines 593--602
+Overfull \hbox (0.6042pt too wide) in alignment at lines 587--596
 [][][][][][][]
  []
 
 
-Overfull \hbox (0.6042pt too wide) in alignment at lines 611--620
+Overfull \hbox (0.6042pt too wide) in alignment at lines 605--614
 [][][][][][][]
  []
 
@@ -1593,4 +1593,4 @@ Here is how much of TeX's memory you used:
  430 hyphenation exceptions out of 8191
  56i,14n,74p,2170b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on coursework.dvi (24 pages, 89500 bytes).
+Output written on coursework.dvi (24 pages, 89512 bytes).
