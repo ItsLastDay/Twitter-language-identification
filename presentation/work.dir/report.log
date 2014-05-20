@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.4.11)  20 MAY 2014 04:29
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.4.11)  20 MAY 2014 10:24
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1411,6 +1411,10 @@ Overfull \hbox (1.56543pt too wide) has occurred while \output is active
 [5
 
 ]
+Overfull \vbox (3.65114pt too high) detected at line 106
+ []
+
+
 Overfull \hbox (1.56543pt too wide) has occurred while \output is active
 []  [] 
  []
@@ -1515,14 +1519,14 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 208.
 Here is how much of TeX's memory you used:
  22358 strings out of 494518
  394901 string characters out of 6173752
- 458059 words of memory out of 5000000
+ 458060 words of memory out of 5000000
  25066 multiletter control sequences out of 15000+600000
  19526 words of font info for 54 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
  49i,16n,57p,422b,539s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/last/.texmf-var/fonts/pk/ljfour/lh/lh-t2a/lasx1440.600pk> </home/last
-/.texmf-var/fonts/pk/ljfour/lh/lh-t2a/lasi1200.600pk> </home/last/.texmf-var/fo
-nts/pk/ljfour/lh/lh-t2a/lass1200.600pk> </home/last/.texmf-var/fonts/pk/ljfour/
+ </home/last/.texmf-var/fonts/pk/ljfour/lh/lh-t2a/lasi1200.600pk> </home/last
+/.texmf-var/fonts/pk/ljfour/lh/lh-t2a/lass1200.600pk> </home/last/.texmf-var/fo
+nts/pk/ljfour/lh/lh-t2a/lasx1440.600pk> </home/last/.texmf-var/fonts/pk/ljfour/
 lh/lh-t2a/lasi1440.600pk> </home/last/.texmf-var/fonts/pk/ljfour/lh/lh-t2a/lass
 1728.600pk> </home/last/.texmf-var/fonts/pk/ljfour/lh/lh-t2a/lass0600.600pk> </
 home/last/.texmf-var/fonts/pk/ljfour/lh/lh-t2a/lass0800.600pk> </home/last/.tex
@@ -1530,9 +1534,9 @@ mf-var/fonts/pk/ljfour/lh/lh-t2a/lass1440.600pk> </home/last/.texmf-var/fonts/p
 k/ljfour/lh/lh-t2a/lass2074.600pk></usr/share/texlive/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmsy10.pfb>
-Output written on work.dir/report.pdf (13 pages, 140985 bytes).
+Output written on work.dir/report.pdf (13 pages, 143940 bytes).
 PDF statistics:
- 500 PDF objects out of 1000 (max. 8388607)
+ 510 PDF objects out of 1000 (max. 8388607)
  116 compressed objects within 2 object streams
  27 named destinations out of 1000 (max. 500000)
  73 words of extra memory for PDF output out of 10000 (max. 10000000)

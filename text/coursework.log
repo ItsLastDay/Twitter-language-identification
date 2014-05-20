@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.4.11)  18 MAY 2014 15:49
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.4.11)  20 MAY 2014 04:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1554,29 +1554,29 @@ Overfull \hbox (1.91846pt too wide) in paragraph at lines 474--477
 iga_original.py),
  []
 
-[19]
-Underfull \hbox (badness 2443) in paragraph at lines 506--507
+[19] [20]
+Underfull \hbox (badness 2443) in paragraph at lines 511--512
 \T2A/cmr/m/n/14.4 Overcoming the limitations of short, unedited and idiomatic t
 ext
  []
 
-[20] [21] [22]
-Overfull \hbox (0.6042pt too wide) in alignment at lines 553--562
+[21] [22]
+Overfull \hbox (0.6042pt too wide) in alignment at lines 558--567
 [][][][][][][]
  []
 
 
-Overfull \hbox (0.6042pt too wide) in alignment at lines 570--579
+Overfull \hbox (0.6042pt too wide) in alignment at lines 575--584
 [][][][][][][]
  []
 
 
-Overfull \hbox (0.6042pt too wide) in alignment at lines 587--596
+Overfull \hbox (0.6042pt too wide) in alignment at lines 592--601
 [][][][][][][]
  []
 
 
-Overfull \hbox (0.6042pt too wide) in alignment at lines 605--614
+Overfull \hbox (0.6042pt too wide) in alignment at lines 610--619
 [][][][][][][]
  []
 
@@ -1587,10 +1587,10 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 Here is how much of TeX's memory you used:
  25982 strings out of 494519
  560780 string characters out of 6173778
- 656582 words of memory out of 5000000
+ 656581 words of memory out of 5000000
  28634 multiletter control sequences out of 15000+600000
  19311 words of font info for 44 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
  56i,14n,74p,2170b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on coursework.dvi (24 pages, 89512 bytes).
+Output written on coursework.dvi (24 pages, 90408 bytes).
