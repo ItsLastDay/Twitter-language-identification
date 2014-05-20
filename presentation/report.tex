@@ -1,0 +1,208 @@
+\documentclass[mathserif,utf8,14pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage[english,russian]{babel}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{amsmath}
+
+\usetheme{Madrid}
+%\setbeamerfont{framesource}{size=\small}
+%\setbeamercolor{framesource}{fg=gray}
+%\newcommand{\source}[1]{\begin{textblock*}{8cm}(0.5cm,8.7cm)
+%    \begin{beamercolorbox}[ht=0.5cm,left]{framesource}
+%        \usebeamerfont{framesource}\usebeamercolor[fg]{framesource} source: \itshape{{#1}}
+%    \end{beamercolorbox}
+%\end{textblock*}}
+
+\makeatletter
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hspace{0.92\paperwidth}
+  \hbox{%
+%  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+%    \usebeamerfont{author in head/foot}\insertshortauthor%~~\beamer@ifempty{\insertshortinstitute}{}{(\insertshortinstitute)}
+%  \end{beamercolorbox}%
+%  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+%    \usebeamerfont{title in head/foot}\insertshorttitle
+%  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.08\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+%    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\makeatother
+
+\beamertemplatenavigationsymbolsempty
+
+\title{Определение языка сообщений социальной сети Twitter}
+\author{Выполнил студент 327 группы \\ Михаил Кольцов}
+\institute{
+Научный руководитель: \\
+Владимир Майоров
+}
+\vspace*{10px}
+\date{\today}
+\begin{document}
+\begin{frame}
+    \maketitle
+\end{frame}
+
+
+\begin{frame}{Введение}
+    Twitter~--- социальная сеть, в которой более 200 миллионов пользователей 
+    обмениваются сообщениями, которые называются <<твитами>>: \\
+    \begin{block}{Пример твита}
+        {\color{red}RT @TheWritingDiva:} {\color{blue}\#BlogPaws \#blogpawty} fiona waits 
+        for treats {\color{magenta}@susandaffron} {\color{violet}pic.twitter.com/p41wMgEdq8}
+    \end{block}
+    {\color{red}Ретвит}, {\color{blue}хэштег}, {\color{violet}ссылка}, {\color{magenta}упоминание}.
+\end{frame}
+
+\begin{frame}{Введение. Почему Twitter?}
+    \begin{itemize}
+        \item Отслеживание общественного мнения (новый фильм, реформа,~$\ldots$)
+        \item Обнаружение событий (землетрясения, пробки,~$\ldots$)
+        \item Выявление социальных слоёв (либералов, вегетарианцев,~$\ldots$)
+        \item И многое другое 
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Введение. Трудности}
+    \begin{itemize}
+        \item Длина сообщения~--- до 140 символов
+        \item Пользователи допускают ошибки
+        \item Произвольное проявление эмоций
+    \end{itemize}
+    Необходимая мера~--- \emph{нормализация}:
+    \begin{block}{Пример нормализации}
+        {\color{red}"The Comeback"\ is coming back to HBO and DREAMS DO COME TRUE AFTER ALL!!!!!!!!} $\to$ 
+        the comeback is 
+        coming back to hbo and dreams do come true after all
+    \end{block}
+\end{frame}
+
+\begin{frame}{Постановка задачи}
+    Цель работы~--- исследование и сравнение методов автоматического определения языка сообщений Twitter
+    \begin{enumerate}
+        \item Исследовать существующие методы определения языка текста
+        \item Провести совместное сравнительное тестирование некоторых методов
+        \item Исследовать зависимость качества классификации от метода нормализации и кол-ва твитов в
+            обучающей выборке
+        \item Исследовать возможность улучшения какого-либо метода
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Сравниваемые системы}
+    \begin{enumerate}
+        \item \emph{TextCat}~--- создан в 1997 г., основан на подсчёте частоты 1..4-грамм
+        \item \emph{Google CLD2}~--- создан в 2011 г., встроен в Google Chrome и Google Translate; основан на Naive Bayes
+        \item \emph{Langid}~--- создан в 2011 г.; основан на Naive Bayes
+        \item \emph{LIGA}~--- реализованный в рамках курсовой работы подход, основанный на графах, предложен в 2011~г.
+        \item \emph{LIGAv2}~--- предлагаемое улучшение метода LIGA
+        \item \emph{LogR}~--- реализованный в рамках курсовой работы метод, использующий логистическую регрессию, предложен в 2012 г.
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Корпус. Источники}
+    \begin{enumerate}
+        \item Научные статьи
+        \item Twitter API
+        \item Indigenous Tweets
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Корпус. Статистика}
+    18 языков, 4 различных стиля написания: 
+    \begin{itemize}
+        \item Основанные на кириллице: болгарский, чувашский, русский, татарский, украинский (всего~205 175 твитов)
+        \item Арабские: арабский, персидский (фарси), урду (всего~4605 твитов)
+        \item Латинские: нидерландский, французский, английский, немецкий, итальянский, испанский, турецкий 
+            (всего~13 382 твита)
+        \item Деванагари: хинди, маратхи, непальский (всего~4041 твит)
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Система тестирования}
+    Написан набор скриптов на Bash и Python, обеспечивающих лёгкое добавление/удаление тестируемой системы или
+    изменение параметров нормализации, предназначенный для сбора характеристик сравниваемых систем. 
+
+    Два результирующих представления для твитов: 
+    \begin{itemize}
+        \item plain text
+        \item plain text + извлечённая метаинформация
+    (имя пользователя, местоположение, $\ldots$)
+    \end{itemize}
+    \begin{block}{Схема работы с твитами}
+        plain\_text\_getters $\to$ merge\_files $\to$ normalize\_text $\to$ gen\_stat $\to$ main 
+        $\to$ {\color{blue}результат}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Тестирование. Результаты}
+
+    \begin{center}
+        \small
+    \begin{table}[h]
+    \begin{tabular*}{1.029\textwidth}{| l| *{6}{|c} |}
+    \hline 
+    Мера & CLD2 & langid.py & LIGAv2 & LIGA & TextCat  & LogR\\
+    \hline
+    \emph{Точность} & 85.2\% & 78.4\% & 94.3\% & 90.8\% & 93.8\% & 29.5\%\\
+    \emph{Полнота} & 79.4\% & 78.7\% & 94.0\% & 89.3\% & 90.5\% & 29.9\%\\
+    \emph{F1-мера} & 82.2\% & 78.6\% & {\color{blue}94.2\%} & 90.1\% & 92.1\% & {\color{red}29.7\%}\\
+    \emph{Accuracy} & 79.5\% & 78.5\% & 94.1\% & 89.6\% & 90.5\% & 29.4\%\\
+    \hline
+    \end{tabular*}
+    \end{table}
+    \end{center}
+\end{frame}
+
+\begin{frame}{Тестирование. Примеры ошибок}
+    
+            \begin{enumerate}
+                \item \textbf{Похожесть языков}: \textit{lang leve ikea} (nl $\to$ en), 
+                            \textit{state department condemns concerted campaign intimidate international journalists cairo} (en $\to$ fr).
+                    \item \textbf{Наличие имён собственных на другом языке}:
+                            \textit{moyes ponders toffees selection everton boss david moyes will have decisions make both ends the pitch} (en $\to$ fr).
+                        \item \textbf{Фразы на другом языке}:
+                            \textit{харесах видеоклип watch mario balotelli failed backheel} (bg $\to$ en).
+                        \item \textbf{Неверная разметка}: 
+                            \textit{встиг підстригтися уже наступний раз записався} (ru $\to$ uk). 
+                        \item \textbf{Малая длина}:
+                            \textit{кис}, \textit{прекратите}, \textit{lesles}, \textit{haa dus}, \textit{lool grave}. 
+            \end{enumerate}
+\end{frame}
+
+\begin{frame}{Выводы}
+    \begin{enumerate}
+        \item Исследованы методы автоматического определения языка сообещний Twitter и произведено сравненительное тестирование некоторых из них
+        \item Реализовано два метода в рамах курсовой работы
+        \item Предложено улучшение для одного из методов, которое показывает качество классификации выше всех остальных
+        \item Реализована система для тестирования методов классификации твитов
+        \item Чтобы показать трудность решения задачи определения языка применительно к Twitter, проведён анализ ошибок классификации
+    \end{enumerate}
+\end{frame}
+
+
+\begin{frame}{}
+    \begin{center}
+    \large Спасибо за внимание!
+    \end{center}
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
