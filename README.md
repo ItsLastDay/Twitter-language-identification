@@ -10,4 +10,4 @@ Compared performance of 6 approaches on gathered data-set.
 As a result, approach modified by me outperforms others. However, it is rather memory-consuming.  
 
 
-This repository contains all files, that were gathered\produced during the research. My implementations of LID algorithms lie in /progs/logr and /progs/liga.
+This repository contains all files, that were gathered\produced during the research. My implementations of LID algorithms lie in /progs/logr and /progs/liga. There are also a bunch of programs in /scripts, which helped with tweet processing.
