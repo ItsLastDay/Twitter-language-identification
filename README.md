@@ -8,3 +8,6 @@ Implemented two approaches for language identification task, made modifications 
 Compared performance of 6 approaches on gathered data-set.  
 
 As a result, approach modified by me outperforms others. However, it is rather memory-consuming.  
+
+
+This repository contains all files, that were gathered\produced during the research. My implementations of LID algorithms lie in /progs/logr and /progs/liga.
