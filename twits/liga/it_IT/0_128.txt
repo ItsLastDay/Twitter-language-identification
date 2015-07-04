@@ -1,1 +1,0 @@
-i top tweet di twitter vengono selezionati da un algoritmo che considera vari fattori per capire quali siano i tweet più apprezzati

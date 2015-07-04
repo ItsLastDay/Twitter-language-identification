@@ -1,1 +1,0 @@
-record snowfalls keep northeast shut down
